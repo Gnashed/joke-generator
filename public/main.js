@@ -2,24 +2,29 @@
 // import ViewDirectorBasedOnUserAuthStatus from '../utils/viewDirector';
 import 'bootstrap'; // import bootstrap elements and js
 import '../styles/main.scss';
+import getJoke from '../api/jokesData';
+import jokeCard from '../components/jokeCard';
+import renderToDom from '../utils/renderToDom';
 
 const init = () => {
-  document.querySelector('#app').innerHTML = `
-    <h1>HELLO! You are up and running!</h1>
-    <small>Open your dev tools</small><br />
-    <button class="btn btn-danger" id="click-me">Click ME!</button><br />
+  renderToDom('#app', `
+    <h1>Joke Generator</h1>
+    <small id="joke-delivery">Welcome! Click the button to get started</small><br />
+    <button class="btn btn-danger" id="click-me">Get a joke</button><br />
     <hr />
-    <h2>These are font awesome icons:</h2>
-    <i class="fas fa-user fa-4x"></i> <i class="fab fa-github-square fa-5x"></i>
-  `;
-  console.warn('YOU ARE UP AND RUNNING!');
-
-  document
-    .querySelector('#click-me')
-    .addEventListener('click', () => console.warn('You clicked that button!'));
+  `);
+  // getJoke().then((joke) => jokeCard(joke));
 
   // USE WITH FIREBASE AUTH
   // ViewDirectorBasedOnUserAuthStatus();
 };
 
+const events = () => {
+  document.querySelector('#click-me')
+    .addEventListener('click', () => {
+      getJoke().then((joke) => jokeCard(joke));
+    });
+};
+
 init();
+events();
