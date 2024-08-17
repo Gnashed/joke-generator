@@ -1,4 +1,5 @@
 import renderToDom from '../utils/renderToDom';
+import getJoke from '../api/jokesData';
 
 const jokeCard = (obj) => {
   const content = `
@@ -13,7 +14,12 @@ const jokeCard = (obj) => {
   document.querySelector('#get-punchline')
     .addEventListener('click', () => {
       document.querySelector('#render-joke-delivery-here').innerHTML = `${obj.delivery} 🤣🤣🤣`;
-      document.querySelector('#get-punchline').innerHTML = 'Get Another Joke';
+      document.querySelector('#get-punchline').innerHTML = 'Get another joke';
+      document.getElementById('get-punchline').id = 'get-another-joke';
+      document.querySelector('#get-another-joke').addEventListener('click', () => {
+        getJoke().then((joke) => jokeCard(joke));
+        document.getElementById('get-another-joke').id = 'get-punchline';
+      });
     });
 };
 
