@@ -3,11 +3,12 @@ import getJoke from '../api/jokesData';
 
 const jokeCard = (obj) => {
   const content = `
+  <div class="joke-card container py-3">
     <h1>Joke Generator</h1>
     <small id="joke-delivery">${obj.setup}</small><br />
     <div id="render-joke-delivery-here"></div>
-    <button class="btn btn-danger" id="get-punchline">Get punchline</button><br />
-    <hr />
+    <button class="btn btn-outline-danger mt-2" id="get-punchline">Get punchline</button><br />
+  </div>
   `;
   renderToDom('#app', content);
 

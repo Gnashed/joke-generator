@@ -3,8 +3,14 @@
 
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(32, 22, 53);
+  color: rgb(17, 190, 17);
   text-align: center;
   margin-top: 100px;
+}
+
+.joke-container, .joke-card {
+  border: 2px solid wheat;
+  border-radius: 12px;
+  width: 50%;
 }
