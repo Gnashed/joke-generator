@@ -8,10 +8,11 @@ import renderToDom from '../utils/renderToDom';
 
 const init = () => {
   renderToDom('#app', `
-    <h1>Joke Generator</h1>
-    <small id="joke-delivery">Welcome! Click the button to get started</small><br />
-    <button class="btn btn-danger" id="click-me">Get a joke</button><br />
-    <hr />
+    <div class="joke-container container py-3">
+      <h1>Joke Generator</h1>
+      <small id="joke-delivery">Welcome! Click the button to get started</small><br />
+      <button class="btn btn-outline-warning mt-2" id="click-me">Get a joke</button><br />
+    </div>
   `);
   // getJoke().then((joke) => jokeCard(joke));
 
